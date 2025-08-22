@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.swal2-border-radius {
+    border-radius: 1rem !important;
+}
+
+/* gunakan di resources/css/app.css atau keep di @push('styles') */
+.konten-berita {
+    --img-height: 220px; /* ubah tinggi sesuai kebutuhan */
+    --img-gap: 0.75rem;
+}
+
+/* default: gambar jadi kotak kecil, inline (3 kolom kira-kira) */
+.konten-berita img {
+    display: inline-block;
+    width: calc(33.333% - (var(--img-gap) * 2 / 3));
+    height: var(--img-height);
+    object-fit: cover;
+    object-position: center;
+    margin: var(--img-gap) var(--img-gap) 0;
+    border-radius: 0.5rem;
+    vertical-align: middle;
+}
+
+/* jika gambarnya satu-satunya di paragraf -> tampil full width (tidak dipotong) */
+.konten-berita p:only-child img,
+.konten-berita img:only-child {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 800px; /* batasi kalau perlu */
+    margin: 1.25rem auto;
+}
+
+/* jika kamu mau tampilan 2 kolom di layar kecil */
+@media (max-width: 768px) {
+    .konten-berita img {
+        width: calc(50% - (var(--img-gap) * 0.75));
+        height: 180px;
+    }
+}
+
+/* jika layar sangat kecil -> jadikan full width */
+@media (max-width: 480px) {
+    .konten-berita img {
+        width: 100%;
+        height: auto;
+        display: block;
+        margin: 0.75rem auto;
+    }
+}
