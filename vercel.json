@@ -2,8 +2,8 @@
     "version": 2,
     "framework": null,
     "functions": {
-        "**/*.php": { "runtime": "vercel-php@0.6.0" },
-        "api/**/*.php": { "runtime": "vercel-php@0.6.0" }
+        "api/index": { "runtime": "vercel-php@0.6.0" },
+        "**/*.php": { "runtime": "vercel-php@0.6.0" }
     },
     "routes": [
         { "src": "/build/(.*)", "dest": "/public/build/$1" },
